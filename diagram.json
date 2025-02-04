@@ -1,0 +1,67 @@
+{
+    "version": 1,
+    "author": "Átila Conceição De Goes",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-pi-pico-w",
+        "id": "pico",
+        "top": -185.65,
+        "left": -217.25,
+        "attrs": { "builder": "pico-sdk" }
+      },
+      { "type": "wokwi-led", "id": "led1", "top": -138, "left": -361, "attrs": { "color": "red" } },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": -99.6,
+        "left": -361,
+        "attrs": { "color": "yellow" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": -61.2,
+        "left": -361,
+        "attrs": { "color": "limegreen" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": -14.95,
+        "left": -308.6,
+        "rotate": 180,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": 52.25,
+        "left": -318.2,
+        "rotate": 180,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 23.45,
+        "left": -308.6,
+        "rotate": 180,
+        "attrs": { "value": "330" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "pico:GP13", "r1:1", "green", [ "h-28.8", "v9.64" ] ],
+      [ "r3:1", "pico:GP11", "green", [ "h28.8", "v9.6" ] ],
+      [ "pico:GND.1", "led3:C", "black", [ "h-182.4", "v134.4", "h86" ] ],
+      [ "pico:GND.1", "led1:C", "black", [ "h-182.4", "v57.6", "h86" ] ],
+      [ "pico:GND.1", "led2:C", "black", [ "h-182.4", "v76.8" ] ],
+      [ "r1:2", "led1:A", "green", [ "h-8.4", "v-86.4" ] ],
+      [ "r2:2", "led2:A", "green", [ "v0", "h-8.4", "v-48" ] ],
+      [ "r3:2", "led3:A", "green", [ "h1.2", "v-76.8" ] ],
+      [ "r2:1", "pico:GP12", "green", [ "h19.2", "v-57.64" ] ]
+    ],
+    "dependencies": {}
+  }
